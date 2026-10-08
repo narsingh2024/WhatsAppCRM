@@ -162,6 +162,11 @@ function LoginPageInner() {
               {t('createAccount')}
             </Link>
           </p>
+          <p className="mt-3 text-center text-sm text-muted-foreground">
+            <Link href="/admin/login" className="hover:text-foreground">
+              {t('platformAdmin')}
+            </Link>
+          </p>
         </CardContent>
       </Card>
     </div>

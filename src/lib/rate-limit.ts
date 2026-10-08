@@ -173,6 +173,13 @@ export const RATE_LIMITS = {
    *  capping a stampede; excess inbounds simply don't get an auto-reply
    *  (they still land in the inbox for a human). */
   aiAutoReplyAccount: { limit: 30, windowMs: 60_000 },
+  /** Platform client directory. Reads only, and only for the
+   *  operator allow-list. 60/min covers paging through the list
+   *  and opening several client pages. */
+  platformAdminRead: { limit: 60, windowMs: 60_000 },
+  /** Platform admin password attempts, per IP. Tight because the
+   *  credential is a single shared operator login. */
+  platformAdminLogin: { limit: 10, windowMs: 15 * 60_000 },
 } as const;
 
 /** Test-only helper. Clears the in-memory state so unit tests don't
